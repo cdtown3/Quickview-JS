@@ -1,6 +1,11 @@
 /*
+ * 	Create <ul> with class "cd-items" and "cd-container"; Each item needs to be within an <li> element with class "cd-item".
+ *	Add item image in a <div> with class "cd-img-trigger". Under <img> add an <a> element with class "cd-trigger". This is your Quick View button.
+ *	Outside of "cd-img-trigger", add a <p> with class "cookie-name" (to be updated to generic name). 
+ *	Lastly, at the bottom of your <body>, create a <div> with class "cd-quick-view", "cd-slider-wrapper", and another <ul> but with class "cd-slider".
+ *	View Index.html to get full example of the quick view slider.
  *	Program utilizes Product Quick View modal by CodyHouse.co (https://codyhouse.co/gem/css-product-quick-view)
- *  However, I have edited the file extensively to provide necessary functionality
+ *  	However, I have edited the file extensively to provide necessary functionality
  */
 
 jQuery(document).ready(function ($) {
