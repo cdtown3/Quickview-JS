@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="/css/site.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/012facc90f.js" crossorigin="anonymous"></script>
@@ -17,97 +17,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Simonetta&display=swap" rel="stylesheet">
     <!-- Modernizr-->
     <script src="/js/modernizr.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="cookieCtrl">
     <section id="ProductTitle">
         <div class="container">
             <h1>Products</h1>
         </div>
     </section>
+    <!-- Issues with GitHub only, but works when using VS19/Chrome. Looking into it. -->
+    <!-- <section id="search-section">
+        <div class="row">
+            <div class="col-md-12" align="center">
+                <p><input type="text" placeholder="Cookie" id="search-bar" ng-model="search" /></p>
+            </div>
+        </div>
+    </section> -->
 
     <div class="container text-center products">
         <ul class="cd-items cd-container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3" ng-repeat="x in cookieRowOne" ng-class="{toHide: !x.name.includes(search)}">
                     <li class="cd-item">
                         <div class="cd-img-trigger">
-                            <img src="/images/OatRaisW.png" class="img-responsive" style="width:75%" alt="Image">
+                            <img src="{{ x.img }}" class="img-responsive" style="width:75%" alt="Image">
                             <a href="#0" class="cd-trigger">Quick View</a>
                         </div>
-                        <p class="cookie-name">Oatmeal Raisin</p>
-                    </li>
-                </div>
-
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/ChocW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">Chocolate Chip</p>
-                    </li>
-                </div>
-
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/OatButterW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">Oatmeal & Butterscotch</p>
-                    </li>
-                </div>
-
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/LemWChocW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">Lemon with <br />White Chocolate Chip</p>
-                    </li>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/WChocMacNutW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">White Chocolate<br />Macadamia Nut</p>
-                    </li>
-                </div>
-
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/SugarW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">Sugar Cookie</p>
-                    </li>
-                </div>
-
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/SnickerW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">Snickerdoodle</p>
-                    </li>
-                </div>
-
-                <div class="col-md-3">
-                    <li class="cd-item">
-                        <div class="cd-img-trigger">
-                            <img src="/images/PeanutChocW.png" class="img-responsive" style="width:75%" alt="Image">
-                            <a href="#0" class="cd-trigger">Quick View</a>
-                        </div>
-                        <p class="cookie-name">Peanut Butter <br /> Chocolate Chip</p>
+                        <p class="cookie-name">{{ x.name }}</p>
                     </li>
                 </div>
             </div>
@@ -142,6 +81,8 @@
         </div>
         <a href="#0" class="cd-close">Close</a>
     </div>
+    <!-- Cookie Angular Controller -->
+    <script src="js/cookieCtrl.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
