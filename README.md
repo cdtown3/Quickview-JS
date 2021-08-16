@@ -1,2 +1,1 @@
-# Quickview-JS
-Started utilizing https://codyhouse.co/gem/css-product-quick-view, however due to other needs this module has been reconfigured to be dynamic and lightweight.
+Started utilizing https://codyhouse.co/gem/css-product-quick-view, however due to other needs this module has been reconfigured to be more dynamic, by getting product titles, images, descriptions directly from the html. Instead of the products being hard-coded, I've now implemented an Angular controller that contains an array of dictionaries which contains the products. We then loop through each product and add its elements in. This could quickly be changed to query a database.
