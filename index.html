@@ -1,11 +1,15 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
 <html>
 
 <head>
-    <title>Quickview-JS</title>
+    <title>Guts&Butts</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/css/site.css">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/012facc90f.js" crossorigin="anonymous"></script>
@@ -20,33 +24,49 @@
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
+    <link rel="shortcut icon" href="/images/GnB_Logo.ico" />
+
 </head>
 
 <body ng-app="myApp" ng-controller="cookieCtrl">
+    <section id="card">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img src="~/images/GnB_Banner.png" class="img-fluid" alt="Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="ProductTitle">
         <div class="container">
             <h1>Products</h1>
         </div>
     </section>
-    <!-- Issues with GitHub only, but works when using VS19/Chrome. Looking into it. -->
-    <!-- <section id="search-section">
+
+    <div align="center">
+        <p>Using Angular to get {{ cookies.length }} products </p>
+    </div>
+
+    <section id="search-section">
         <div class="row">
             <div class="col-md-12" align="center">
                 <p><input type="text" placeholder="Cookie" id="search-bar" ng-model="search" /></p>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <div class="container text-center products">
         <ul class="cd-items cd-container">
             <div class="row">
-                <div class="col-md-3" ng-repeat="x in cookieRowOne" ng-class="{toHide: !x.name.includes(search)}">
+                <div class="col-md-3" ng-repeat="x in cookies" ng-class="{toHide: !x.Name.toLowerCase().includes(search.toLowerCase())}">
                     <li class="cd-item">
                         <div class="cd-img-trigger">
-                            <img src="{{ x.img }}" class="img-responsive" style="width:75%" alt="Image">
+                            <img src="{{ x.Img }}" class="img-responsive" style="width:75%" alt="Image">
                             <a href="#0" class="cd-trigger">Quick View</a>
                         </div>
-                        <p class="cookie-name">{{ x.name }}</p>
+                        <p class="cookie-name">{{ x.Name }}</p>
                     </li>
                 </div>
             </div>
@@ -60,7 +80,7 @@
         <div class="cd-slider-wrapper">
             <ul class="cd-slider">
                 <li class="selected"><img class="img1" src="/images/WChocMacNutW.png" alt="Selected"></li>
-                <li> <img class="img2" src="/images/WChocMacNutS.png" alt="Image 2"></li>
+                <li> <img class="img2" src="/images/WChocMacNutS.png" alt="Number dos equis"></li>
             </ul>
             <ul class="cd-slider-navigation">
                 <li><a class="cd-next" href="#0">Prev</a></li>
@@ -81,6 +101,42 @@
         </div>
         <a href="#0" class="cd-close">Close</a>
     </div>
+
+    <div class="container cntr2 vcenter">
+        <div class="row social-row h-100">
+            <!-- Social Media Links -->
+            <div class="col-sm-6 footer-social-wrap footer-min-height my-auto">
+                <div class="vcenter">
+                    <ul id="social" class="clearfix">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-square social-box"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-instagram-square social-box"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-envelope-square social-box"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Email List -->
+            <div class="col-sm-6 footer-subscription-wrap footer-min-height my-auto">
+                <div class="vcenter my-auto">
+                    <form>
+                        <input id="sendEmail" type="text" name="email" placeholder="Email Address">
+                        <button type="submit" class="btn btn-primary submit-btn" id="open-form">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Cookie Angular Controller -->
     <script src="js/cookieCtrl.js"></script>
     <!-- jQuery -->
@@ -90,5 +146,6 @@
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/velocity.min.js"></script>
     <script src="js/main.js"></script> <!-- Resource jQuery -->
+
 </body>
 </html>
